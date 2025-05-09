@@ -1,1 +1,1 @@
-Android > 12
+Android >= 12
