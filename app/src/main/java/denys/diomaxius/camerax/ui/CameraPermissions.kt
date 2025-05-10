@@ -2,9 +2,7 @@ package denys.diomaxius.camerax.ui
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.provider.Settings
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -29,7 +27,6 @@ import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.google.accompanist.permissions.shouldShowRationale
 
-@RequiresApi(Build.VERSION_CODES.S)
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun CameraPermissions() {
