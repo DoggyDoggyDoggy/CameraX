@@ -45,25 +45,25 @@ fun CameraPermissions() {
     }
 
     when {
-        // Разрешение уже есть
+        // Permission already exists
         cameraPermissionState.status.isGranted -> {
-            CameraPreviewWithFilters()
+            CameraPreview()
         }
 
-        // Пользователь уже отказал один раз, можно показать rationale
+        // The user has already refused once, you can show rationale
         cameraPermissionState.status.shouldShowRationale -> {
             RationaleContent(
-                message = "Нам действительно нужно разрешение на камеру, чтобы показывать превью и делать фото.",
-                buttonText = "Показать запрос",
+                message = "We do need camera permission to show previews and take photos.",
+                buttonText = "Show request",
                 onRequest = { cameraPermissionState.launchPermissionRequest() }
             )
         }
 
-        // Остальные случаи — показываем что без разрешения не работает
+        // Other cases - we show that it doesn't work without permission
         else -> {
             RationaleContent(
-                message = "Камера недоступна без разрешения. Вы можете включить его в настройках приложения.",
-                buttonText = "Открыть настройки",
+                message = "The camera is not accessible without permission. You can enable it in the app settings.",
+                buttonText = "Open settings",
                 onRequest = {
                     val intent = Intent(
                         Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
